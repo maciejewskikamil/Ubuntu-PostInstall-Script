@@ -1,0 +1,1 @@
+bash -c "$(wget -O - https://raw.githubusercontent.com/maciejewskikamil/Ubuntu-PostInstall-Script/master/ubuntu_install.sh)"

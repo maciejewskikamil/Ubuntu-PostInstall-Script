@@ -1,20 +1,52 @@
 #!/bin/bash
 
-echo "Enter root password: "
+echo "Enter new root password: "
+stty -echo
 read vpass
+stty echo
+echo
+
+if [ "$vpass" = "" ] || [ "$vpass" = " " ]
+then
+  echo "Empty input!"
+  exit 1
+fi
 
 echo "Enter IP address: "
 read vip
 
+if [ "$vip" = "" ] || [ "$vip" = " " ]
+then
+  echo "Empty input!"
+  exit 1
+fi
+
 echo "Enter netmask: "
 read vmask
+
+if [ "$vmask" = "" ] || [ "$vmask" = " " ]
+then
+  echo "Empty input!"
+  exit 1
+fi
 
 echo "Enter broadcast: "
 read vbroadcast
 
+if [ "$vbroadcast" = "" ] || [ "$vbroadcast" = " " ]
+then
+  echo "Empty input!"
+  exit 1
+fi
+
 echo "Enter gateway: "
 read vgateway 
 
+if [ "$vgateway" = "" ] || [ "$vgateway" = " " ]
+then
+  echo "Empty input!"
+  exit 1
+fi
 
 echo "root:$vpass" | chpasswd
 sed -i '/#PermitRootLogin prohibit-password/c\PermitRootLogin yes' /etc/ssh/sshd_config

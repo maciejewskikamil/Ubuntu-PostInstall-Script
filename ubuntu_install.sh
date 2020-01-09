@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Enter root password: "
 read vpass
 

@@ -1,5 +1,21 @@
 #!/bin/bash
 
+trap ctrl_c INT
+
+function ctrl_c() {
+        stty echo
+		echo
+		exit 1
+}
+
+trap catch_exits 1 2 3 15 20
+
+catch_exits() {
+		stty echo
+		echo
+        exit 1
+}
+
 echo "Enter new root password: "
 stty -echo
 read vpass
